@@ -12,9 +12,14 @@ export function PortalNav({ lab = false }: { lab?: boolean }) {
   const [active, setActive] = useState('home');
   useEffect(() => {
     if (lab) return;
-    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }), { rootMargin: '-15% 0px -65% 0px' });
-    ['home', 'modules', 'experiments', 'tools'].forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
-    return () => observer.disconnect();
+    const update = () => {
+      if (window.scrollY > 100 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5) { setActive('tools'); return; }
+      let current = 'home';
+      ['home', 'modules', 'experiments', 'tools'].forEach(id => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 160) current = id; });
+      setActive(current);
+    };
+    window.addEventListener('scroll', update, { passive: true }); update();
+    return () => window.removeEventListener('scroll', update);
   }, [lab]);
   return <header className="portal-nav"><div className="portal-container nav-inner">
     <Link to="/" className="flex shrink-0 items-center gap-3" aria-label="MBU Data Science home"><img src={logo.url} className="brand-symbol" alt="MBU" /><div className="nav-word"><div className="text-sm font-semibold">MBU <span className="font-normal text-muted-foreground">/</span> Data Science</div><div className="mt-1 font-mono text-[8px] text-muted-foreground">LEARNING PORTAL</div></div></Link>
