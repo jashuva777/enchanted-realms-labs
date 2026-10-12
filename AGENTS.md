@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the portal home as a single scrolling route and experiments as dedicated dynamic lab routes, because sections belong to one learning portal while labs need shareable URLs.
+- Load the React Three Fiber scene lazily on the client and read scene colours from CSS tokens, because WebGL must not run during SSR and visual theming must remain centralized.
+- Execute Python in a terminable browser worker using Pyodide, because student code must not freeze the page or require a server.
