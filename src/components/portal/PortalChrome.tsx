@@ -6,7 +6,7 @@ import logo from '@/assets/mbu-logo.png.asset.json';
 import { socialLinks } from '@/lib/portal-data';
 export function Socials() {
   const icons = [Linkedin, Github, Code2, Instagram];
-  return <div className="flex items-center gap-2">{socialLinks.map((social, i) => { const Icon = icons[i]; return <Button key={social.name} asChild variant="ghost" size="icon" className="social-button"><a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name} title={social.name}><Icon size={16} /></a></Button>; })}</div>;
+  return <div className="flex items-center gap-2">{socialLinks.map((social, i) => { const Icon = icons[i] ?? Code2; return <Button key={social.name} asChild variant="ghost" size="icon" className="social-button"><a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name} title={social.name}><Icon size={16} /></a></Button>; })}</div>;
 }
 export function PortalNav({ lab = false }: { lab?: boolean }) {
   const [active, setActive] = useState('home');
