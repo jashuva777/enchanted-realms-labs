@@ -1,0 +1,75 @@
+{
+  "modules": [
+    {
+      "number": 1,
+      "version": 1,
+      "asset_id": "06088020-1ebd-4ae2-a5a2-b43c26865b60",
+      "project_id": "9e487903-e0fe-42e5-9ced-2528022e10a5",
+      "url": "/__l5e/assets-v1/06088020-1ebd-4ae2-a5a2-b43c26865b60/mbu-module-1-notes.pdf",
+      "r2_key": "a/v1/9e487903-e0fe-42e5-9ced-2528022e10a5/06088020-1ebd-4ae2-a5a2-b43c26865b60/mbu-module-1-notes.pdf",
+      "original_filename": "mbu-module-1-notes.pdf",
+      "size": 47339,
+      "content_type": "application/pdf",
+      "created_at": "2026-10-12T15:22:11Z"
+    },
+    {
+      "number": 2,
+      "version": 1,
+      "asset_id": "375a1e40-0082-4620-9f5d-8fd220f22379",
+      "project_id": "9e487903-e0fe-42e5-9ced-2528022e10a5",
+      "url": "/__l5e/assets-v1/375a1e40-0082-4620-9f5d-8fd220f22379/mbu-module-2-notes.pdf",
+      "r2_key": "a/v1/9e487903-e0fe-42e5-9ced-2528022e10a5/375a1e40-0082-4620-9f5d-8fd220f22379/mbu-module-2-notes.pdf",
+      "original_filename": "mbu-module-2-notes.pdf",
+      "size": 47186,
+      "content_type": "application/pdf",
+      "created_at": "2026-10-12T15:22:12Z"
+    },
+    {
+      "number": 3,
+      "version": 1,
+      "asset_id": "f61ab18b-d9ed-46e9-a3c9-559e05f913f3",
+      "project_id": "9e487903-e0fe-42e5-9ced-2528022e10a5",
+      "url": "/__l5e/assets-v1/f61ab18b-d9ed-46e9-a3c9-559e05f913f3/mbu-module-3-notes.pdf",
+      "r2_key": "a/v1/9e487903-e0fe-42e5-9ced-2528022e10a5/f61ab18b-d9ed-46e9-a3c9-559e05f913f3/mbu-module-3-notes.pdf",
+      "original_filename": "mbu-module-3-notes.pdf",
+      "size": 46434,
+      "content_type": "application/pdf",
+      "created_at": "2026-10-12T15:22:13Z"
+    },
+    {
+      "number": 4,
+      "version": 1,
+      "asset_id": "b7244c46-022d-4213-9f53-4769140685a5",
+      "project_id": "9e487903-e0fe-42e5-9ced-2528022e10a5",
+      "url": "/__l5e/assets-v1/b7244c46-022d-4213-9f53-4769140685a5/mbu-module-4-notes.pdf",
+      "r2_key": "a/v1/9e487903-e0fe-42e5-9ced-2528022e10a5/b7244c46-022d-4213-9f53-4769140685a5/mbu-module-4-notes.pdf",
+      "original_filename": "mbu-module-4-notes.pdf",
+      "size": 49066,
+      "content_type": "application/pdf",
+      "created_at": "2026-10-12T15:22:14Z"
+    },
+    {
+      "number": 5,
+      "version": 1,
+      "asset_id": "68571a0e-683b-4277-b087-6a8dc1c2bbdb",
+      "project_id": "9e487903-e0fe-42e5-9ced-2528022e10a5",
+      "url": "/__l5e/assets-v1/68571a0e-683b-4277-b087-6a8dc1c2bbdb/mbu-module-5-notes.pdf",
+      "r2_key": "a/v1/9e487903-e0fe-42e5-9ced-2528022e10a5/68571a0e-683b-4277-b087-6a8dc1c2bbdb/mbu-module-5-notes.pdf",
+      "original_filename": "mbu-module-5-notes.pdf",
+      "size": 46822,
+      "content_type": "application/pdf",
+      "created_at": "2026-10-12T15:22:15Z"
+    }
+  ],
+  "all": {
+    "version": 1,
+    "asset_id": "a4f64147-be19-4355-ae6d-14f2acd542e0",
+    "project_id": "9e487903-e0fe-42e5-9ced-2528022e10a5",
+    "url": "/__l5e/assets-v1/a4f64147-be19-4355-ae6d-14f2acd542e0/mbu-data-science-course-notes.pdf",
+    "r2_key": "a/v1/9e487903-e0fe-42e5-9ced-2528022e10a5/a4f64147-be19-4355-ae6d-14f2acd542e0/mbu-data-science-course-notes.pdf",
+    "original_filename": "mbu-data-science-course-notes.pdf",
+    "size": 65185,
+    "content_type": "application/pdf",
+    "created_at": "2026-10-12T15:22:15Z"
+  }
+}
