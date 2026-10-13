@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { ArrowUpRight, ArrowRight, ArrowDown, Network, Layers3, Code2, Database, ChartNoAxesCombined, Activity, BookOpen, FlaskConical, Clock3, Cpu, GraduationCap, X, Download, CircleCheck, Sparkles } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, ArrowDown, Network, Layers3, Code2, Database, ChartNoAxesCombined, Activity, BookOpen, FlaskConical, Clock3, Cpu, Download, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ModuleReader } from '@/components/portal/ModuleReader';
 import portrait from '@/assets/sangam-jashuva.jpeg.asset.json';
@@ -22,9 +22,9 @@ function Reveal({ children, className = '' }: { children: ReactNode; className?:
 }
 function PhotoSlot({ professor = false }: { professor?: boolean }) {
   const [exists, setExists] = useState(false);
-  useEffect(() => { const image = new Image(); image.onload = () => setExists(true); image.src = professor ? '/professor.jpg' : '/profile.jpg'; return () => { image.onload = null; }; }, [professor]);
+  useEffect(() => { if (!professor) return; const image = new Image(); image.onload = () => setExists(true); image.src = '/professor.jpg'; return () => { image.onload = null; }; }, [professor]);
   if (!professor) return <div className="avatar"><img src={portrait.url} alt="Sangam Jashuva" /></div>;
-  return <div className={professor ? 'professor-avatar' : 'avatar'}>{professor ? 'SB' : 'SJ'}{exists && <img src={professor ? '/professor.jpg' : '/profile.jpg'} alt={professor ? 'Mr. S. Bosu Babu' : 'Sangam Jashuva'} />}</div>;
+  return <div className="professor-avatar">SB{exists && <img src="/professor.jpg" alt="Mr. S. Bosu Babu" />}</div>;
 }
 function Index() {
   const [mounted, setMounted] = useState(false);
