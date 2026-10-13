@@ -1,4 +1,7 @@
 # Portal roadmap
+- [ ] Replace Experiment 1 with supplied data-import lab and downloadable source files.
+- [ ] Support runnable edits with local CSV, TXT, JSON and Excel datasets, and add a YouTube link option.
+- [ ] Verify original code, edited code, errors, stop/reset and file downloads.
 - [x] Update professional typography and student portrait.
 - [x] Replace modules with five syllabus modules, turning topic pages and PDF notes.
 - [x] Add Resources beside Tools and verify reading/download flows.
