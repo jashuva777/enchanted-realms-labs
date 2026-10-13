@@ -1,4 +1,5 @@
 # Portal roadmap
+- [ ] Add supplied Experiments 2A/2B, 3 and 4A/4B/4C with runnable code and source downloads.
 - [ ] Replace Experiment 1 with supplied data-import lab and downloadable source files.
 - [ ] Support runnable edits with local CSV, TXT, JSON and Excel datasets, and add a YouTube link option.
 - [ ] Verify original code, edited code, errors, stop/reset and file downloads.
