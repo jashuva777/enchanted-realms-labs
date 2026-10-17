@@ -11,6 +11,22 @@ self.onmessage = async ({ data }) => {
     runtime.setStderr({ batched: text => { lines.push(text); self.postMessage({ type: 'output', text: lines.join('\n') }); } });
     self.postMessage({ type: 'status', text: 'Preparing imports…' });
     await runtime.loadPackagesFromImports(data.code);
+    const plots = /matplotlib|seaborn|\.plot\(/.test(data.code);
+    if (plots) {
+      await runtime.loadPackage('matplotlib');
+      await runtime.runPythonAsync(`import matplotlib
+matplotlib.use('Agg', force=True)
+import matplotlib.pyplot as plt
+plt.close('all')
+_lab_plot_count = 0
+def _lab_show(*args, **kwargs):
+    global _lab_plot_count
+    for number in plt.get_fignums():
+        _lab_plot_count += 1
+        plt.figure(number).savefig(f'/lab/chart-{_lab_plot_count}.png', bbox_inches='tight', dpi=120)
+    plt.close('all')
+plt.show = _lab_show`);
+    }
     if ((data.files ?? []).some(file => file.name.endsWith('.xlsx')) || /read_excel|ExcelWriter|to_excel|openpyxl/.test(data.code)) await runtime.loadPackage('openpyxl');
     runtime.FS.mkdirTree('/lab');
     runtime.FS.chdir('/lab');
@@ -29,7 +45,7 @@ self.onmessage = async ({ data }) => {
     }));
     self.postMessage({ type: 'status', text: 'Running…' });
     const globals = runtime.toPy({});
-    try { await runtime.runPythonAsync(data.code, { globals }); } finally { globals.destroy(); }
+    try { await runtime.runPythonAsync(data.code, { globals }); if (plots) await runtime.runPythonAsync('_lab_show()'); } finally { globals.destroy(); }
     const files = [];
     for (const name of runtime.FS.readdir('/lab')) {
       if (name === '.' || name === '..' || !runtime.FS.isFile(runtime.FS.stat(`/lab/${name}`).mode)) continue;
