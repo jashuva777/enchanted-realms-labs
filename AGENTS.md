@@ -14,3 +14,4 @@
 - Execute Python in a terminable browser worker using Pyodide, because student code must not freeze the page or require a server.
 - Prepare each lab run in an isolated browser filesystem with supplied assets and capture plots through Matplotlib's Agg backend, because edited file operations and charts must work without server execution.
 - Keep syllabus topic content in a shared data module and serve PDF notes through asset pointers, because the page reader and downloadable resources need consistent module mappings.
+- Keep document-based experiment variants in browser-safe catalog modules with self-contained prerequisites, because selecting a part or rerunning edited code must not depend on a previous run's filesystem.

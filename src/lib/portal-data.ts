@@ -1,6 +1,7 @@
 import { suppliedExperiments } from './supplied-experiments';
+import { documentExperiments } from './experiments-seven-eight';
 import { experimentOneCode, experimentOneFiles, type LabFile } from './experiment-one';
-export type Experiment = { id: string; title: string; description: string; tag: string; duration: string; aim: string; procedure: string[]; code: string; files?: LabFile[]; videoSearch?: string; variants?: { label: string; code: string }[]; notice?: string };
+export type Experiment = { id: string; title: string; description: string; tag: string; duration: string; aim: string; procedure: string[]; code: string; files?: LabFile[]; videoSearch?: string; variants?: { label: string; code: string }[]; notice?: string; codeOnly?: boolean; videos?: { title: string; url: string }[] };
 export const socialLinks = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jashuva-sangam-243348408/' },
   { name: 'GitHub', url: 'https://github.com/jashuva777' },
@@ -12,6 +13,7 @@ export { modules } from './syllabus';
 export const experiments: Experiment[] = [
   { id: 'EXP-001', title: 'Data Import and Export with Pandas', description: 'Read CSV, text, JSON and Excel, create DataFrames, and export your results.', tag: 'PANDAS · FILE I/O', duration: '30 min', aim: 'Load data from local files and a URL, construct a DataFrame from a dictionary, and export JSON and multi-sheet Excel files.', procedure: ['Import Pandas and load the provided Titanic CSV.', 'Retrieve the Iris CSV from a URL and read the tab-separated text file.', 'Create a student DataFrame from a dictionary and inspect JSON data.', 'Read the provided Excel workbook and inspect its sheets.', 'Export a JSON file and a multi-sheet Excel workbook.'], code: experimentOneCode, files: experimentOneFiles, videoSearch: 'pandas read csv json excel data import export tutorial' },
   ...suppliedExperiments,
+  ...documentExperiments,
 ];
 
 export const tools = [

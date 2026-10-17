@@ -13,7 +13,7 @@ import { modules, experiments, tools, pageMeta } from '@/lib/portal-data';
 
 const DataScene = lazy(() => import('@/components/portal/DataScene'));
 export const Route = createFileRoute('/')({
-  head: () => pageMeta('Data Science Learning Portal — Sangam Jashuva · MBU', 'Sangam Jashuva’s Mohan Babu University Data Science portal. Explore all five syllabus modules, downloadable PDF notes, six interactive Python experiments, and study resources.'),
+  head: () => pageMeta('Data Science Learning Portal — Sangam Jashuva · MBU', 'Sangam Jashuva’s Mohan Babu University Data Science portal. Explore all five syllabus modules, downloadable PDF notes, eight interactive Python experiments, and study resources.'),
   component: Index,
 });
 function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
@@ -50,7 +50,7 @@ function Index() {
             <h1>Data Science<br /><span>Learning Portal</span><span className="text-gold">.</span></h1>
             <p className="typing-line">{typed}</p>
             <div className="hero-actions"><Button asChild><Link to="/" hash="modules"><BookOpen />Explore modules<ArrowUpRight /></Link></Button><Button asChild variant="outline"><Link to="/" hash="experiments"><FlaskConical />Enter the lab<ArrowRight /></Link></Button></div>
-            <div className="hero-meta"><span className="flex items-center gap-2"><BookOpen size={12} />05 MODULES</span><span className="flex items-center gap-2"><FlaskConical size={12} />06 EXPERIMENTS</span><span className="flex items-center gap-2"><Cpu size={12} />07 TOOLS</span></div>
+            <div className="hero-meta"><span className="flex items-center gap-2"><BookOpen size={12} />05 MODULES</span><span className="flex items-center gap-2"><FlaskConical size={12} />{String(experiments.length).padStart(2, '0')} EXPERIMENTS</span><span className="flex items-center gap-2"><Cpu size={12} />07 TOOLS</span></div>
           </div>
           <motion.aside className="student-card" aria-label="Student details" initial={reduced ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .3, duration: .7 }}>
             <div className="flex justify-between font-mono text-[9px]"><span className="text-muted-foreground">STUDENT PROFILE</span><span className="flex items-center gap-1.5 text-primary"><span className="status-dot" />MBU</span></div>
@@ -64,7 +64,7 @@ function Index() {
       </section>
       <section className="course-strip" aria-label="Assistant professor and course details"><div className="portal-container course-strip-inner">
         <motion.div className="flex items-center gap-4" whileHover={reduced ? {} : { rotateY: 4, rotateX: -3 }}><PhotoSlot professor /><div><p className="mb-1 font-mono text-[8px] text-gold">YOUR COURSE MENTOR</p><h2 className="text-base font-medium">Mr. S. Bosu Babu</h2><p className="mt-1 text-[11px] text-muted-foreground">Assistant Professor <span className="mx-1">·</span> Data Science</p></div></motion.div>
-        <div className="course-stats"><div><strong>05<span className="ml-2 text-primary">/</span></strong><p>Syllabus modules</p></div><div><strong>06<span className="ml-2 text-gold">/</span></strong><p>Hands-on experiments</p></div><div><strong className="text-primary">5th</strong><p>Current semester</p></div></div>
+        <div className="course-stats"><div><strong>05<span className="ml-2 text-primary">/</span></strong><p>Syllabus modules</p></div><div><strong>{String(experiments.length).padStart(2, '0')}<span className="ml-2 text-gold">/</span></strong><p>Hands-on experiments</p></div><div><strong className="text-primary">5th</strong><p>Current semester</p></div></div>
       </div></section>
       <section id="modules" className="page-section"><div className="portal-container"><Reveal><div className="section-heading"><div><div className="eyebrow"><BookOpen size={12} />THE FOUNDATION</div><h2>A little theory. A lot of possibility.</h2><p>Five modules · Your complete Data Science syllabus, across 45 periods.</p></div><span className="section-caption"><span className="status-dot" />05 MODULES</span></div></Reveal>
         <div className="module-grid">{modules.map((module, i) => { const Icon = icons[i] ?? BookOpen; const pdf = notes.modules.find(item => item.number === module.number); return <Reveal key={module.title}><motion.article className="module-card syllabus-card" whileHover={reduced ? {} : { rotateX: 3, rotateY: -3, y: -3 }}><div className="flex items-center justify-between"><div className="module-icon"><Icon size={19} /></div><span className="font-mono text-[9px] text-muted-foreground">{module.periods} PERIODS</span></div><div className="module-label">MODULE {module.number}</div><h3>{module.title}</h3><p>{module.description}</p><div className="syllabus-footer"><Button variant="link" size="sm" className="pl-0" onClick={() => setLesson(i)} aria-label={`Read Module ${module.number}`}><BookOpen />Read topics<ArrowRight /></Button>{pdf && <Button asChild variant="ghost" size="icon"><a href={pdf.url} download={`mbu-module-${module.number}-notes.pdf`} aria-label={`Download Module ${module.number} PDF notes`} title="Download PDF notes"><Download /></a></Button>}<span className="module-number">{module.pages.length} TOPICS</span></div></motion.article></Reveal>; })}</div>
