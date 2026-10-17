@@ -18,6 +18,22 @@ self.onmessage = async ({ data }) => {
       await runtime.loadPackage('micropip');
       await runtime.runPythonAsync("import micropip\nawait micropip.install('openpyxl==3.1.5')");
     }
+    if (/vaderSentiment/.test(data.code)) {
+      await runtime.loadPackage('micropip');
+      await runtime.runPythonAsync("import micropip\nawait micropip.install('vaderSentiment==3.3.2', deps=False)");
+    }
+    if (/nltk/.test(data.code)) {
+      for (const [folder, resource] of [['corpora', 'stopwords'], ['sentiment', 'vader_lexicon']]) {
+        const directory = `/home/pyodide/nltk_data/${folder}`;
+        runtime.FS.mkdirTree(directory);
+        const path = `${directory}/${resource}.zip`;
+        if (!runtime.FS.analyzePath(path).exists) {
+          const response = await fetch(`https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/${folder}/${resource}.zip`);
+          if (!response.ok) throw new Error(`Could not load NLTK ${resource}`);
+          runtime.FS.writeFile(path, new Uint8Array(await response.arrayBuffer()));
+        }
+      }
+    }
     await runtime.loadPackagesFromImports(data.code);
     const plots = /matplotlib|seaborn|\.plot\(/.test(data.code);
     if (plots) {
