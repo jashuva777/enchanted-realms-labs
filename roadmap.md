@@ -1,10 +1,11 @@
 # Portal roadmap
-- [ ] Add supplied Experiment 6 variants; flag empty 6G source without inventing its content.
-- [ ] Add supplied Experiment 5 variants and display generated Matplotlib/Seaborn charts.
-- [ ] Add supplied Experiments 2A/2B, 3 and 4A/4B/4C with runnable code and source downloads.
-- [ ] Replace Experiment 1 with supplied data-import lab and downloadable source files.
-- [ ] Support runnable edits with local CSV, TXT, JSON and Excel datasets, and add a YouTube link option.
-- [ ] Verify original code, edited code, errors, stop/reset and file downloads.
+- [x] Add supplied Experiment 6 variants; flag empty 6G source without inventing its content.
+- [x] Add supplied Experiment 5 variants and display generated Matplotlib/Seaborn charts.
+- [x] Add supplied Experiments 2A/2B, 3 and 4A/4B/4C with runnable code and source downloads.
+- [x] Replace Experiment 1 with supplied data-import lab and downloadable source files.
+- [x] Support runnable edits with local CSV, TXT, JSON and Excel datasets, and add a YouTube link option.
+- [x] Verify original code, edited code, errors, stop/reset and file downloads.
+- [ ] Receive code for Experiment 6G (uploaded file is empty).
 - [x] Update professional typography and student portrait.
 - [x] Replace modules with five syllabus modules, turning topic pages and PDF notes.
 - [x] Add Resources beside Tools and verify reading/download flows.
