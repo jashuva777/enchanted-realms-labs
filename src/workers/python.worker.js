@@ -10,6 +10,10 @@ self.onmessage = async ({ data }) => {
     runtime.setStdout({ batched: text => { lines.push(text); self.postMessage({ type: 'output', text: lines.join('\n') }); } });
     runtime.setStderr({ batched: text => { lines.push(text); self.postMessage({ type: 'output', text: lines.join('\n') }); } });
     self.postMessage({ type: 'status', text: 'Preparing imports…' });
+    if (/seaborn/.test(data.code)) {
+      await runtime.loadPackage(['micropip', 'numpy', 'pandas', 'matplotlib', 'scipy']);
+      await runtime.runPythonAsync("import micropip\nawait micropip.install('seaborn==0.13.2', deps=False)");
+    }
     if (/openpyxl|read_excel|ExcelWriter|to_excel/.test(data.code) || (data.files ?? []).some(file => file.name.endsWith('.xlsx'))) {
       await runtime.loadPackage('micropip');
       await runtime.runPythonAsync("import micropip\nawait micropip.install('openpyxl==3.1.5')");
