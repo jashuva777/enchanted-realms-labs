@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { ArrowUpRight, ArrowRight, ArrowDown, Network, Layers3, Code2, Database, ChartNoAxesCombined, Activity, BookOpen, FlaskConical, Clock3, Cpu, Download, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ModuleReader } from '@/components/portal/ModuleReader';
+import { VivaPractice, QuestionPapers } from '@/components/portal/StudyPractice';
 import portrait from '@/assets/sangam-jashuva.jpeg.asset.json';
 import notes from '@/assets/course-notes.json';
 import { resources } from '@/lib/syllabus';
@@ -13,7 +14,7 @@ import { modules, experiments, tools, pageMeta } from '@/lib/portal-data';
 
 const DataScene = lazy(() => import('@/components/portal/DataScene'));
 export const Route = createFileRoute('/')({
-  head: () => pageMeta('Data Science Learning Portal — Sangam Jashuva · MBU', 'Sangam Jashuva’s Mohan Babu University Data Science portal. Explore all five syllabus modules, downloadable PDF notes, eight interactive Python experiments, and study resources.'),
+  head: () => pageMeta('Data Science Learning Portal — Sangam Jashuva · MBU', 'Explore five MBU Data Science syllabus modules, PDF notes, eight interactive Python experiments, viva practice, and module-wise 2-mark and 8-mark practice question papers.'),
   component: Index,
 });
 function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
@@ -74,6 +75,8 @@ function Index() {
       </div></section>
       <section id="tools" className="page-section"><div className="portal-container"><Reveal><div className="section-heading"><div><div className="eyebrow"><Cpu size={12} />YOUR DATA TOOLKIT</div><h2>Good questions. Great tools.</h2><p>The essentials for every step of your data science journey.</p></div><span className="section-caption"><Sparkles size={13} />07 ESSENTIALS</span></div></Reveal><Reveal className="tool-grid">{tools.map(tool => <a key={tool.name} className="tool-card" href={tool.url} target="_blank" rel="noopener noreferrer" title={`${tool.name} documentation`}><span className="tool-symbol">{tool.symbol}</span><span className="text-[12px]">{tool.name}</span><span className="flex items-center gap-1 font-mono text-[8px] text-muted-foreground">DOCUMENTATION<ArrowUpRight size={10} /></span></a>)}</Reveal></div></section>
       <section id="resources" className="page-section"><div className="portal-container"><Reveal><div className="section-heading"><div><div className="eyebrow"><BookOpen size={12} />STUDY RESOURCES</div><h2>Your reference shelf.</h2><p>Course notes and open reading for deeper understanding.</p></div><span className="section-caption">05 MODULES · 45 PERIODS</span></div></Reveal><div className="resource-grid">{resources.map(resource => <Reveal key={resource.title}><article className="resource-card"><BookOpen className="text-gold" size={22} /><h3>{resource.title}</h3><p>{resource.description}</p><Button asChild variant="outline" size="sm"><a href={resource.type === 'pdf' ? notes.all.url : resource.url} download={resource.type === 'pdf' ? 'mbu-data-science-course-notes.pdf' : undefined} target={resource.type === 'pdf' ? undefined : '_blank'} rel="noopener noreferrer">{resource.type === 'pdf' ? <><Download />Download all notes</> : <>Open reference<ArrowUpRight /></>}</a></Button></article></Reveal>)}</div></div></section>
+      <VivaPractice />
+      <QuestionPapers />
     </main><PortalFooter />
     {lesson !== null && modules[lesson] && <ModuleReader key={lesson} module={modules[lesson]} close={() => setLesson(null)} />}
   </>;

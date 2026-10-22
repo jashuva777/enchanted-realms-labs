@@ -169,6 +169,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .nav-link { color: var(--muted-foreground); font-size: 13px; padding: 30px 0; position: relative; }
 .nav-link.is-current { color: var(--primary); }
 .nav-link.is-current::after { position: absolute; content: ''; height: 2px; background: var(--primary); bottom: 18px; left: 0; right: 0; }
+.portal-section-nav { display: flex; align-items: center; gap: 20px; min-width: 0; overflow-x: auto; }
+.portal-section-nav .nav-link { flex-shrink: 0; white-space: nowrap; }
+@media (max-width: 1200px) { .nav-inner .nav-status { display: none; } .nav-inner .nav-word { display: none; } .portal-section-nav { flex: 1; } }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 12px var(--primary); display: inline-block; }
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--border); background-image: linear-gradient(color-mix(in oklab, var(--border) 15%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--border) 15%, transparent) 1px, transparent 1px); background-size: 54px 54px; }
 .hero-scene { position: absolute; inset: 0; z-index: 0; }
