@@ -1,6 +1,6 @@
 # Portal roadmap
-- [ ] Add code-only Experiments 7 and 8 from supplied documents, correct errors, and provide related videos.
-- [ ] Verify each new part and edited code in the portal.
+- [x] Add code-only Experiments 7 and 8 from supplied documents, correct errors, and provide related videos.
+- [x] Verify each new part and edited code in the portal.
 - [x] Add supplied Experiment 6 variants; flag empty 6G source without inventing its content.
 - [x] Add supplied Experiment 5 variants and display generated Matplotlib/Seaborn charts.
 - [x] Add supplied Experiments 2A/2B, 3 and 4A/4B/4C with runnable code and source downloads.
