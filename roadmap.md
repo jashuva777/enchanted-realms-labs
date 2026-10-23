@@ -1,7 +1,10 @@
 # Portal roadmap
-- [ ] Add searchable Viva Practice beside Resources with revealable answers.
-- [ ] Add Question Papers beside Viva Practice with module-wise 2-mark and 8-mark questions covering all supplied topics.
-- [ ] Verify practice filters, answer controls, and navigation.
+- [x] Add searchable Viva Practice beside Resources with revealable answers.
+- [x] Add Question Papers beside Viva Practice with module-wise 2-mark and 8-mark questions covering all supplied topics.
+- [x] Verify practice filters, answer controls, and navigation.
+- [ ] Add the five supplied PDF modules with scrolling, page-turning and original PDF downloads.
+- [ ] Add an experiment edit option with add/delete controls and saved changes.
+- [ ] Verify the uploaded module reader and experiment management flows.
 - [x] Add code-only Experiments 7 and 8 from supplied documents, correct errors, and provide related videos.
 - [x] Verify each new part and edited code in the portal.
 - [x] Add supplied Experiment 6 variants; flag empty 6G source without inventing its content.
